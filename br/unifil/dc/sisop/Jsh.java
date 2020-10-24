@@ -1,4 +1,7 @@
 package br.unifil.dc.sisop;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 /**
  * Write a description of class Jsh here.
@@ -7,26 +10,38 @@ package br.unifil.dc.sisop;
  * @version 180823
  */
 public final class Jsh {
-    
+
     /**
-    * Funcao principal do Jsh.
-    */
-    public static void promptTerminal() {
+     * Funcao principal do Jsh.
+     * 
+     * @throws IOException
+     */
+    public static void promptTerminal() throws IOException {
 
         while (true) {
-    		exibirPrompt();
-    		ComandoPrompt comandoEntrado = lerComando();
-    		executarComando(comandoEntrado);
-    	}
+            exibirPrompt();
+            ComandoPrompt comandoEntrado = lerComando();
+            executarComando(comandoEntrado);
+        }
     }
 
     /**
-    * Escreve o prompt na saida padrao para o usuário reconhecê-lo e saber que o
-    * terminal está pronto para receber o próximo comando como entrada.
-    */
-    public static void exibirPrompt() {
+     * Escreve o prompt na saida padrao para o usuário reconhecê-lo e saber que o
+     * terminal está pronto para receber o próximo comando como entrada.
+     * 
+     * @throws IOException
+     */
+    public static void exibirPrompt() throws IOException {
+        String userName = System.getProperty("user.name");
+        String userDir = System.getProperty("user.dir");
+        String comando ="id -u";
+        Process child = Runtime.getRuntime().exec(comando);
+        BufferedReader stdInput = new BufferedReader(new
+                InputStreamReader(child.getInputStream()));
+        String line = stdInput.readLine();
 
-        throw new RuntimeException("Método ainda não implementado.");
+        System.out.print(userName+'#'+line+':'+userDir+'%'+" ");
+        
     }
 
     /**
@@ -66,8 +81,10 @@ public final class Jsh {
     
     /**
      * Entrada do programa. Provavelmente você não precisará modificar esse método.
+     * 
+     * @throws IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         promptTerminal();
     }

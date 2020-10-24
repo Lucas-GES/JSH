@@ -1,6 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.io.InputStreamReader;
+import java.util.Optional;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -75,7 +76,37 @@ public final class Jsh {
     * programa desconhecido.
     */
     public static void executarComando(ComandoPrompt comando) {
-        throw new RuntimeException("Método ainda não implementado.");
+        Scanner in = new Scanner(System.in);
+
+            switch (comando.getNome()) {
+                case "relogio":
+                    ComandosInternos.exibirRelogio();
+                    break;
+                case "la":
+                    String userDir = System.getProperty("user.dir");
+                    ComandosInternos.escreverListaArquivos(Optional.ofNullable(userDir));
+                    break;
+                case "cd":
+                    System.out.print("Nome para a Pasta: ");
+                    ComandosInternos.criarNovoDiretorio(in.nextLine());
+                    break;
+                case "ad":
+                    System.out.print("Nome da pasta para exclusão: ");
+                    ComandosInternos.apagarDiretorio(in.nextLine());
+                    break;
+
+                case "mdt": ComandosInternos.mudarDiretorioTrabalho(in.nextLine());
+                    break;
+
+                case "encerrar": System.exit(0);
+                    break;
+
+                default:
+                     System.out.print("Comando não encontrado"+'\n');
+                     break;
+            }
+
+
     }
 
     public static int executarPrograma(ComandoPrompt comando) {

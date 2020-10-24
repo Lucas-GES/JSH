@@ -1,5 +1,8 @@
 package br.unifil.dc.sisop;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 /**
@@ -11,27 +14,48 @@ import java.util.Optional;
 public final class ComandosInternos {
     
     public static int exibirRelogio() {
-
-        throw new RuntimeException("Método ainda não implementado");
+        System.out.print("São "+ LocalTime.now() + " de " + LocalDate.now()+'\n');
+        return 1;
     }
     
     public static int escreverListaArquivos(Optional<String> nomeDir) {
-        throw new RuntimeException("Método ainda não implementado");
+        String userDir = System.getProperty("user.dir");
+        File file = new File(userDir);
+        File[] arquivos = file.listFiles();
+
+        for (File fileTmp : arquivos) {
+            System.out.println(fileTmp.getName());
+        }
+
+        return 1;
     }
     
     public static int criarNovoDiretorio(String nomeDir) {
-        throw new RuntimeException("Método ainda não implementado");
+        new File(nomeDir).mkdir();
+        System.out.print("Pasta Criada"+'\n');
+        return 1;
     }
     
     public static int apagarDiretorio(String nomeDir) {
-
-        throw new RuntimeException("Método ainda não implementado");
+        File dir = new File(nomeDir);
+        if(dir.exists()) {
+            new File(nomeDir).delete();
+            System.out.print("Pasta Deletada"+'\n');
+        }else{
+            System.out.print("Pasta não encontrada"+'\n');
+        }
+        return 1;
     }
     
     public static int mudarDiretorioTrabalho(String nomeDir){
-        throw new RuntimeException("Método ainda não implementado");
+       File diretorio;
+       diretorio = new File(nomeDir).getAbsoluteFile();
+       if(diretorio.exists()){
+           System.setProperty("user.dir",diretorio.getAbsolutePath());
+       }
+
+       return 1;
     }
-    
     /**
      * Essa classe não deve ser instanciada.
      */

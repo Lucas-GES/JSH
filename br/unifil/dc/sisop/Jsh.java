@@ -1,5 +1,7 @@
 package br.unifil.dc.sisop;
+
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -55,8 +57,10 @@ public final class Jsh {
     * @return 
     */
     public static ComandoPrompt lerComando() {
-
-        throw new RuntimeException("Método ainda não implementado.");
+        Scanner in = new Scanner(System.in);
+        String comando = in.nextLine();
+        ComandoPrompt prompt = new ComandoPrompt(comando);
+        return prompt;
     }
 
     /**

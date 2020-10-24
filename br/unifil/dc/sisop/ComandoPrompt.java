@@ -14,7 +14,8 @@ public class ComandoPrompt {
     
     public ComandoPrompt(String comando) {
         // ESCREVA AQUI SEU CODIGO PARA ESTRUTURAR O COMANDO RECEBIDO DO PROMPT.
-        throw new RuntimeException("Método ainda não implementado");
+        nome = comando;
+        argumentos = comando.split(" ");
     }
     
     /**

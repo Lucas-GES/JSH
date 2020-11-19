@@ -244,7 +244,7 @@ under the License.
 				<artifactId>maven-release-plugins</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-					<goals>pre-integration-test</goals>
+					<goals></goals>
 					<preparationGoals>package</preparationGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>v@{project.version}</tagNameFormat>

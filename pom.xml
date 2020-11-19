@@ -101,6 +101,13 @@ under the License.
 		</dependency>
 	</dependencies>
 
+	<scm>
+		<connection>scm:git:git@github.com:Lucas-GES/JSH.git</connection>
+		<developerConnection>scm:git:git@github.com:Lucas-GES/JSH.git</developerConnection>
+		<url>https://github.com/Lucas-GES/JSH</url>
+		<tag>v@{project.version}-SNAPSHOT</tag>
+	</scm>
+
 	<build>
 		<plugins>
 			<!-- We use the maven-shade plugin to create a fat jar that contains all necessary dependencies. -->
@@ -151,7 +158,7 @@ under the License.
 			<plugin>
 				<groupId>br.unifil.dc.sisop</groupId>
 				<artifactId>JSH-Maven</artifactId>
-				<version>1.0</version>
+				<version>1.0.0-SNAPSHOT</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -233,6 +240,18 @@ under the License.
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugins</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<goals>pre-integration-test</goals>
+					<preparationGoals>package</preparationGoals>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<remoteTagging>false</remoteTagging>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -13,6 +13,12 @@ import java.io.IOException;
  * @version 180823
  */
 public final class Jsh {
+    static final String relogio = "relogio";
+    static final String la = "la";
+    static final String cd = "cd";
+    static final String ad = "ad";
+    static final String mdt = "mdt";
+    static final String encerrar = "encerrar";
 
     /**
      * Funcao principal do Jsh.
@@ -76,29 +82,30 @@ public final class Jsh {
     * programa desconhecido.
     */
     public static void executarComando(ComandoPrompt comando) {
+        
         Scanner in = new Scanner(System.in);
 
             switch (comando.getNome()) {
-                case "relogio":
+                case relogio:
                     ComandosInternos.exibirRelogio();
                     break;
-                case "la":
+                case la:
                     String userDir = System.getProperty("user.dir");
                     ComandosInternos.escreverListaArquivos(Optional.ofNullable(userDir));
                     break;
-                case "cd":
+                case cd:
                     System.out.print("Nome para a Pasta: ");
                     ComandosInternos.criarNovoDiretorio(in.nextLine());
                     break;
-                case "ad":
+                case ad:
                     System.out.print("Nome da pasta para exclusão: ");
                     ComandosInternos.apagarDiretorio(in.nextLine());
                     break;
 
-                case "mdt": ComandosInternos.mudarDiretorioTrabalho(in.nextLine());
+                case mdt: ComandosInternos.mudarDiretorioTrabalho(in.nextLine());
                     break;
 
-                case "encerrar": System.exit(0);
+                case encerrar: System.exit(0);
                     break;
 
                 default:

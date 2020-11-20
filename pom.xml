@@ -21,7 +21,7 @@ under the License.
 
 	<groupId>br.unifil.dc.sisop</groupId>
 	<artifactId>JSH-Maven</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>Flink Quickstart Job</name>
@@ -112,7 +112,7 @@ under the License.
 				<artifactId>maven-release-plugins</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-					<goals></goals>
+					<goals />
 					<preparationGoals>package</preparationGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>v@{project.version}</tagNameFormat>

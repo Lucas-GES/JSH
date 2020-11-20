@@ -21,7 +21,7 @@ under the License.
 
 	<groupId>br.unifil.dc.sisop</groupId>
 	<artifactId>JSH-Maven</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<version>test</version>
 	<packaging>jar</packaging>	
 
 	<distributionManagement>
@@ -50,7 +50,7 @@ under the License.
 		<connection>scm:git:git@github.com:Lucas-GES/JSH.git</connection>
 		<developerConnection>scm:git:git@github.com:Lucas-GES/JSH.git</developerConnection>
 		<url>https://github.com/Lucas-GES/JSH</url>
-		<tag>JSH-Maven-1.0.0</tag>
+		<tag>test</tag>
 	</scm>
 
 	<build>

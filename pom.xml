@@ -29,7 +29,7 @@ under the License.
       <uniqueVersion>false</uniqueVersion>
       <id>JSH</id>
       <name>LGES Repository</name>
-      <url>scm:git:git@github.com:Lucas-GES/JSH.git</url>
+      <url>https://github.com/Lucas-GES/JSH</url>
       <layout>default</layout>
     </repository>
 	</distributionManagement>
